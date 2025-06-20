@@ -1,44 +1,7 @@
-//factory for tasks
-export function Task (name, desc, dueDate, prio) {
-    // initialize private vars
-    let _name = name;
-    let _desc = desc;
-    let _dueDate = dueDate;
-    let _prio = prio;
-    let _complete = false;
-    
-    //get name
-    const getName = () => {
-        return _name;
-    }
-
-    //get various details,
-    const getDetails = () => {
-        return [_desc, _dueDate, _prio]; }
-
-    //remake private vars
-    const editTask = (name, desc, dueDate, prio) => {
-        _name = name;
-        _desc = desc;
-        _dueDate = dueDate;
-        _prio = prio;
-        _complete = false;
-    }
-
-    //change the status of complete
-    const setComplete = () => {
-        _complete = !_complete;
-    }
-
-    return { getName, getDetails, editTask, setComplete}
-}
-
-
 //factory for projects
 export function Project (name) {
     //initialize variables
     let _name = name;
-    let _complete = false;
     let _tasks = [];
 
     //logic to return specific project name
@@ -64,11 +27,38 @@ export function Project (name) {
         _tasks = _tasks.filter(task => task.getName() !== taskName);
     }
 
+    return { getName, getTasks, setName, addTask, removeTask}
+}
+
+//task factory function
+export function Task (name, desc, dueDate, prio) {
+    // initialize private vars
+    let _name = name;
+    let _desc = desc;
+    let _dueDate = dueDate;
+    let _prio = prio;
+    let _complete = false;
+    
+    //get various details,
+    const getDetails = () => {
+        return [_name, _desc, _dueDate, _prio, _complete]; }
+
+    //remake private vars
+    const editTask = (name, desc, dueDate, prio) => {
+        _name = name;
+        _desc = desc;
+        _dueDate = dueDate;
+        _prio = prio;
+    }
+
     //change the status of complete
     const setComplete = () => {
         _complete = !_complete;
     }
 
-    return { getName, getTasks, setName, addTask, removeTask, setComplete }
+    return { getDetails, editTask, setComplete}
 }
+
+
+
 

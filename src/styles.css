@@ -1,3 +1,21 @@
 body {
     background-color: rebeccapurple;
   }
+.project {
+  border: 1px solid black;
+  border-radius: 10px;
+  min-height: 100px;
+}
+.projHeader {
+  display: flex;
+  flex-direction: row;
+}
+.taskContainer {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid red;
+  border-radius: 10px;
+}
+.hoverColor:hover {
+  filter: invert(100%) sepia(59%) saturate(435%) hue-rotate(7deg) brightness(109%) contrast(92%);
+}

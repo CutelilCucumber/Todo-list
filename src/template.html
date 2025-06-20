@@ -8,20 +8,19 @@
 <body>
     <div id="header">
         <h1>My List</h1>
-        <button data-open-modal="taskModal">Add Task</button>
+        <!-- <button data-open-modal="taskModal">Add Task</button> -->
         <button data-open-modal="projectModal">Add Project</button>
-
 
         <dialog id="taskModal" data-modal>
             <form id="taskForm">
                 <title>New Task</title>
-                <label for="newName">Task Name: *</label><input type="text" name="newName" id="newName" required/>
-                <label for="newDesc">Task description:</label><input type="text" name="newDesc" id="newDesc"/>
-                <label for="newDate">Due date:</label><input type="date" name="newDate" id="newDate"/>
-                <label for="newPrio">Task priority:</label><input type="number" name="newPrio" id="newPrio"/>
+                <div><label for="newName">Task Name: *</label><input type="text" name="newName" id="newName" required/></div>
+                <div><label for="newDesc">Task description:</label><input type="text" name="newDesc" id="newDesc"/></div>
+                <div><label for="newDate">Due date:</label><input type="date" name="newDate" id="newDate"/></div>
+                <div><label for="newPrio">Task priority:</label><input type="number" name="newPrio" id="newPrio"/></div>
                 
-                <button type="submit" id="submit">Submit</button>
-                <button type="submit" formmethod="dialog" id="close" formnovalidate>Close</button>
+                <div><button class="saveBtn">Submit</button>
+                <button formmethod="dialog" formnovalidate>Close</button></div>
             </form>
         </dialog>
         
@@ -30,14 +29,13 @@
                 <title>New Project</title>
                 <label for="projectName">Project Name: *</label><input type="text" name="projectName" id="projectName" required/>
                 
-                <button type="submit" id="submit">Submit</button>
-                <button type="submit" formmethod="dialog" formnovalidate>Close</button>
+                <button class="saveBtn">Submit</button>
+                <button formmethod="dialog" formnovalidate>Close</button>
             </form>
         </dialog>
         
     </div>
-    <div id="cards">
-        
+    <div id="projects">
     </div>
 
 </body>
