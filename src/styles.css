@@ -1,21 +1,52 @@
 body {
     background-color: rebeccapurple;
+    padding-left: 1em;
+    padding-right: 1em;
   }
+.header {
+  display: flex;
+  flex-direction: row;
+} 
 .project {
   border: 1px solid black;
   border-radius: 10px;
-  min-height: 100px;
+  
+  background-color: rgb(202, 230, 255);
 }
 .projHeader {
   display: flex;
   flex-direction: row;
+  gap: 1em;
+  padding-left: .2em;
+  padding-right: .2em;
 }
 .taskContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border: 1px solid red;
   border-radius: 10px;
+}
+.marginRight {
+  margin-left: auto;
+}
+.taskHeader {
+  display: flex;
+  gap: 1em;
+  padding-left: .2em;
+  padding-right: .2em;
+}
+.taskDetails {
+  padding-left: .2em;
+  padding-right: .2em;
+}
+.taskName {
+  font-weight: 800;
+}
+#taskDesc {
+  display: flex;
+  flex-direction: column;
 }
 .hoverColor:hover {
   filter: invert(100%) sepia(59%) saturate(435%) hue-rotate(7deg) brightness(109%) contrast(92%);
 }
+

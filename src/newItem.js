@@ -27,7 +27,20 @@ export function Project (name) {
         _tasks = _tasks.filter(task => task.getName() !== taskName);
     }
 
-    return { getName, getTasks, setName, addTask, removeTask}
+    const completeTask =  (taskName) => {
+        let checkedTask = _tasks.filter(task => task.getName() == taskName);
+        return checkedTask[0].setComplete();
+        
+    }
+
+    const serialize = () => {
+        return {
+            name: _name,
+            tasks: _tasks.map(task => task.serialize())
+        };
+    };
+
+    return { getName, getTasks, setName, addTask, removeTask, completeTask, serialize}
 }
 
 //task factory function
@@ -39,9 +52,12 @@ export function Task (name, desc, dueDate, prio) {
     let _prio = prio;
     let _complete = false;
     
+    //only retrieve name
+    const getName = () => _name;
+    
     //get various details,
     const getDetails = () => {
-        return [_name, _desc, _dueDate, _prio, _complete]; }
+        return [_name, _desc, _dueDate, _prio]; }
 
     //remake private vars
     const editTask = (name, desc, dueDate, prio) => {
@@ -54,9 +70,20 @@ export function Task (name, desc, dueDate, prio) {
     //change the status of complete
     const setComplete = () => {
         _complete = !_complete;
+        return _complete;
     }
 
-    return { getDetails, editTask, setComplete}
+    const serialize = () => {
+        return {
+            name: _name,
+            desc: _desc,
+            dueDate: _dueDate,
+            prio: _prio,
+            complete: _complete
+        };
+    };
+
+    return { getName, getDetails, editTask, setComplete, serialize}
 }
 
 
